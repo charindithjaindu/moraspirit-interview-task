@@ -1,0 +1,21 @@
+.greeting {
+    height: 50vh;
+
+    /* this container doen't show in the begining */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    /* Smooth transition */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.fadeIn {
+    opacity: 1;
+}
+
+.fadeOut {
+    opacity: 0;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <div class="input-form py-5 col-10 offset-1 bg-secondary-subtle rounded-5 mt-4 shadow">
+            <div class="row g-4 pb-3 ">
+                <div class="col-lg-2 offset-lg-3 col-md-3 col-2 offset-1 text-end">
+                    <label for="name" class="col-form-label ">Name</label>
+                </div>
+                <div class="col-8 col-sm-7 col-md-6 col-lg-4 col-xxl-3">
+                    <input type="text" id="name" class="form-control" placeholder="Enter you name here"
+                        oninput="returnToNormal();">
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-2 offset-lg-3 col-md-3 col-2 offset-1 text-end">
+                    <label for="color" class="col-form-label">Color</label>
+                </div>
+                <div class="col-8 col-sm-7 col-md-6 col-lg-4 col-xxl-3">
+                    <select class="form-select" aria-label="Default select example" id="color">
+                        <option value="0" selected class="text-danger">Red</option>
+                        <option value="1" class="text-success">Green</option>
+                        <option value="2" class="text-primary">Blue</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <button
+                class="btn buttonSubmit btn-outline-primary col-4 offset-4 mt-5 col-sm-3 offset-sm-4 col-lg-2 offset-lg-5"
+                style="border-radius: 0px;" onclick="getNameColor();">Submit</button>
+            <center>
+                <p id="errorMsg" style="visibility: hidden;" class="text-success fs-6"> shows errors</p>
+            </center>
+        </div>
+
+        <div class="greeting offset-1 col-10 rounded-5 mt-4 shadow" id="greetingContainer">
+
+
+            <center>
+                <h2 id="greetingText">Hello, here comes the name!</h2>
+            </center>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="./js/script.js"></script>
+
+    <script src="./js/bootstrap.bundle.js"></script>
+
+
+</body>
+
+</html>
