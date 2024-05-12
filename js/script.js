@@ -1,12 +1,9 @@
 function getNameColor() {
-  // get IDs
   var name = document.getElementById("name");
   var color = document.getElementById("color");
   var errorMsg = document.getElementById("errorMsg");
-
   var greetingBox = document.getElementById("greetingContainer");
   var greeting = document.getElementById("greetingText");
-
   var greetColor = color.value;
 
   // Check if the name field is empty
@@ -14,49 +11,38 @@ function getNameColor() {
     errorMsg.innerText = "Please Enter Your Name.";
     errorMsg.style.visibility = "visible";
     errorMsg.classList.replace("text-success", "text-danger");
-
     name.classList.add("is-invalid");
   } else {
     if (greetingBox.classList.contains("fadeIn")) {
       greetingBox.classList.add("fadeOut");
 
       // Wait for 0.5 seconds and then fade in
-      setTimeout(function () {
+      setTimeout(() => {
         greeting.className = ""; // remove all class names from greeting
-        if (greetColor == 0) {
-          //checks the color and adds color to the greeting
-          greeting.classList.add("text-danger");
-          // add name to the greeting
-          greeting.innerText = "Hello, " + name.value + "!";
-        } else if (greetColor == 1) {
-          greeting.classList.add("text-success");
-          // add name to the greeting
-          greeting.innerText = "Hello, " + name.value + "!";
-        } else if (greetColor == 2) {
-          greeting.classList.add("text-primary");
-          // add name to the greeting
-          greeting.innerText = "Hello, " + name.value + "!";
-        }
+        colorSelector(greetColor, greeting, name);
         greetingBox.classList.remove("fadeOut");
       }, 500);
     } else {
-      if (greetColor == 0) {
-        //checks the color and adds color to the greeting
-        greeting.classList.add("text-danger");
-        // add name to the greeting
-        greeting.innerText = "Hello, " + name.value + "!";
-      } else if (greetColor == 1) {
-        greeting.classList.add("text-success");
-        // add name to the greeting
-        greeting.innerText = "Hello, " + name.value + "!";
-      } else if (greetColor == 2) {
-        greeting.classList.add("text-primary");
-        // add name to the greeting
-        greeting.innerText = "Hello, " + name.value + "!";
-      }
-      // show greeting
+      colorSelector(greetColor, greeting, name);
       greetingBox.classList.add("fadeIn");
     }
+  }
+}
+
+function colorSelector(greetColor, greeting, name) {
+  // Set the greeting text
+  greeting.innerText = "Hello, " + name.value + "!";
+  // Set the color based on the greetColor value
+  switch (parseInt(greetColor)) { // Ensure greetColor is parsed to an integer
+    case 0:
+      greeting.classList.add("text-danger");
+      break;
+    case 1:
+      greeting.classList.add("text-success");
+      break;
+    case 2:
+      greeting.classList.add("text-primary");
+      break;
   }
 }
 
